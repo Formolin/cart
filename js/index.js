@@ -8,7 +8,7 @@ $(function () {
         //navigation    布尔值 false   是否显示项目导航
         navigation: true,
         //scrollingSpeed    整数  700 滚动速度，单位为毫秒
-        scrollingSpeed: 400,
+        scrollingSpeed: 1000,
         // afterLoad    滚动到某一屏后的回调函数，
         //接收 anchorLink 和 index 两个参数，anchorLink 是锚链接的名称，index 是序号，从1开始计算
         afterLoad: function (anchorLink, index) {
@@ -24,13 +24,18 @@ $(function () {
                 // fullpage插件的方法使用,注意a标签的href
                 $.fn.fullpage.moveSectionDown();
             })
+            // 在监听一个事件，等购物车走了之后再显示收货人
         },
         // 离开某一屏幕触发
         onLeave: function (index,nextIndex,direction) {
             // alert('ok')
             if(index == 2 && nextIndex == 3){
-                // 证明从第二页到的三页
-                
+                // 证明从第二页到第三页
+                $('.section').eq(index - 1).addClass('leave');
+            }
+            if(index == 3 && nextIndex == 4){
+                // 证明从第3页到第4页
+                $('.section').eq(index - 1).addClass('leave');
             }
         },
     });

@@ -104,6 +104,7 @@
 	left: 293px;
 	top: 128px;
 	opacity: 0;
+	z-index: 100;
 }
 
 .back2 .input {
@@ -209,4 +210,161 @@
 
 .back3 {
 	background: url('../img/03-bg.png') no-repeat center bottom;
+}
+/* 沙发动画 */
+.back2.leave .sofa {
+	/* 没有和页面滚动同步 怎么办？只要和滚动屏幕的时间一样就可以 */
+	animation: sofa 1.7s linear ;
+}
+@keyframes sofa {
+	from{
+		opacity: 1;
+	}
+	to {
+		opacity: 1;
+		transform: translate(-75px,750px);
+	}
+}
+/* 隐藏选中图标 */
+.back3 .change img:last-child {
+	opacity: 0;
+	position: absolute;
+	bottom: 190px;
+	right: 110px;
+}
+.back3 .cart img:last-child {
+	opacity: 0;
+	position: absolute;
+	bottom: 120px;
+	right: 150px;
+}
+/* 定位 */
+.back3 .change img:first-child {
+	position: absolute;
+	bottom: 190px;
+	right: 110px;
+}
+.back3 .cart img:first-child {
+	position: absolute;
+	bottom: 120px;
+	right: 150px;
+}
+.back3.now .change img:last-child {
+	opacity: 1;
+	z-index: 2;
+	transition: all 0.3s linear;
+}
+.back3.now .change img:first-child {
+	opacity: 1;
+	z-index: 2;
+	transition: all 0.3s linear;
+}
+
+.back3 .sofa {
+	position: absolute;
+	left: 489px;
+	top:281px;
+	display: none;
+}
+.back3.now .sofa {
+	position: absolute;
+	left: 489px;
+	top:281px;
+	display: block;
+}
+
+/* 第四屏 */
+.back4 {
+	background: url('../img/04-bg.png') no-repeat center bottom;
+}
+/* 白云 */
+.back4 .cloud {
+	position: absolute;
+	left: -1200px;
+	top: -70px;
+	animation: cloud 5s linear infinite alternate;
+}
+@keyframes cloud{
+	from {
+		transform: translateX(2400px);
+	}
+}
+/* 沙发 */
+.back3.leave .sofa {
+	
+	animation: sofa04 1.7s  linear ;
+}
+@keyframes sofa04 {
+	from {
+		transform: rotate(45deg);
+	}
+	to {
+		/* 旋转之后 x y轴位置变换了 原来的x 变成y轴 */
+		transform:rotate(45deg) translate(600px,355px);
+		z-index: 1;
+	}
+}
+
+/* 文字 */
+
+.back4 .text img:last-child{
+	opacity: 0;
+	position: absolute;
+	left: 50%;
+	margin-left: -200px;
+	top:50px;
+}
+.back4 .text img:first-child{
+	position: absolute;
+	left: 50%;
+	margin-left: -200px;
+	top:50px;
+}
+
+.back4.now .text img:last-child {
+	opacity: 1;
+}
+.back4.now .text img:first-child{
+	opacity: 0;
+}
+
+/* cart */
+.back4 .cart {
+	position: absolute;
+	left: 50%;
+	margin-left: -210px;
+	top:210px;
+	z-index: 2;
+}
+/* 沙发 */
+.back4 .sofa {
+	position: absolute;
+	left: 390px;
+	top:174px;
+	transform: rotate(45deg);
+	opacity: 0;
+}
+.back4.now .sofa {
+	opacity: 1;
+	transition: transform 4s 1s linear;
+	transform: translateX(1000px);
+}
+
+/* 购物车和沙发动画 */
+.back4.now .cart {
+	transition: all 4s 1s linear;
+	transform: translateX(1000px);
+}
+
+/* 收货人 */
+.back4 .addr {
+	position: relative;
+	left: 320px;
+	top: 90px;
+	opacity: 0;
+}
+.back4 .addr img:last-child {
+	position: absolute;
+	left: 60px;
+	top: 50px;
 }
